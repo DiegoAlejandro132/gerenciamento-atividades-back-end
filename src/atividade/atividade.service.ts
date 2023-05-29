@@ -26,11 +26,11 @@ export class AtividadeService {
     return 'this.atividadeRepo.findOne({where: {id: parseInt(id, 10)}})';
   }
 
-  update(id: number, updateAtividadeDto: UpdateAtividadeDto) {
-    return `This action updates a #${id} atividade`;
+  async update(id: number, updateAtividadeDto: UpdateAtividadeDto) {
+    return await this.atividadeRepo.update(id, updateAtividadeDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} atividade`;
+  async remove(id: number) {
+    return await this.atividadeRepo.delete(id);
   }
 }
