@@ -23,6 +23,14 @@ export class TarefaService {
     return await this.tarefaRepo.query(query);
   }
 
+  async findFiltro(filtro){
+    let query = "SELECT *, DATE_FORMAT(created_at, '%Y-%m-%d') as criado_em, DATE_FORMAT(prazo, '%Y-%m-%d') as prazo_exibicao FROM tarefa WHERE 1=1"
+    if (filtro.busca != null){
+      query += ` AND ((nome like '%${filtro.busca}%') OR (descricao like '%${filtro.busca}%'))`
+    }
+    return await this.tarefaRepo.query(query)
+  }
+
   findOne(id: number) {
     return `This action returns a #${id} tarefa`;
   }

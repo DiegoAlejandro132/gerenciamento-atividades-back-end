@@ -17,6 +17,11 @@ export class TarefaController {
     return this.tarefaService.findAll();
   }
 
+  @Post('/filtro')
+  findFiltro(@Body() filtro) {
+    return this.tarefaService.findFiltro(filtro)
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.tarefaService.findOne(+id);

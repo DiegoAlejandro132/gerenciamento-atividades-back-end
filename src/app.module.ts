@@ -6,6 +6,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Atividade } from './atividade/entities/atividade.entity'
 import { Tarefa } from './tarefa/entities/tarefa.entity'
 import { TarefaModule } from './tarefa/tarefa.module';
+import { MovimentoFinanceiroModule } from './movimento-financeiro/movimento-financeiro.module';
+import { MovimentoFinanceiroModule } from './movimento-financeiro/movimento-financeiro.module';
 
 @Module({
   imports: [
@@ -20,7 +22,8 @@ import { TarefaModule } from './tarefa/tarefa.module';
       database: 'gerenciamentoAtividades',
       entities: [Atividade, Tarefa],
       synchronize: false,
-    }),  
+    }),
+    MovimentoFinanceiroModule,  
   ],
   controllers: [AppController],
   providers: [AppService],
